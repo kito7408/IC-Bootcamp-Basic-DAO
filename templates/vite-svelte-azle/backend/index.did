@@ -1,5 +1,7 @@
+type User = record { id : principal; username : text };
 service : () -> {
-  add : (nat) -> (nat);
-  get : () -> (nat) query;
-  inc : () -> (nat);
+  getItems : () -> (vec record { principal; User }) query;
+  getUserByPrincipal : (principal) -> (opt User) query;
+  getValues : () -> (vec User) query;
+  setUser : (text, text) -> ();
 }
